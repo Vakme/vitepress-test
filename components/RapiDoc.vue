@@ -1,8 +1,10 @@
 <script setup>
-import 'rapidoc';
-
 import { useData } from 'vitepress';
-import { ref, watch } from 'vue';
+import { ref, watch, onMounted } from 'vue';
+
+onMounted(() => {
+  import('rapidoc')
+})
 
 const data = useData();
 const theme = ref(data.isDark.value ? 'dark' : 'light')
